@@ -51,9 +51,9 @@ public class TipCalculatorActivity extends AppCompatActivity {
         long percentTipValue15;
         long percentTipValue20;
         long percentTipValue25;
-        Double percentTotalValue15;
-        Double percentTotalValue20;
-        Double percentTotalValue25;
+        long percentTotalValue15;
+        long percentTotalValue20;
+        long percentTotalValue25;
 
         if(checkAmountValue.getText().toString().equals("") || partySizeValue.getText().toString().equals("") || Double.parseDouble(checkAmountValue.getText().toString()) <= 0 || Double.parseDouble( partySizeValue.getText().toString()) <= 0 ){
 
@@ -65,17 +65,17 @@ public class TipCalculatorActivity extends AppCompatActivity {
             copyCheckAmountValue = Double.parseDouble(checkAmountValue.getText().toString());
             copyPartySizeValue = Double.parseDouble(partySizeValue.getText().toString());
 
-            percentTotalValue15 =  (copyCheckAmountValue * 15 / 100);
-            percentTotalValue20 = (copyCheckAmountValue * 20 / 100);
-            percentTotalValue25 = (copyCheckAmountValue * 25 / 100);
+            percentTotalValue15 =  Math.round(copyCheckAmountValue * 15 / 100);
+            percentTotalValue20 = Math.round(copyCheckAmountValue * 20 / 100);
+            percentTotalValue25 = Math.round(copyCheckAmountValue * 25 / 100);
 
             percentTipValue15 = Math.round(percentTotalValue15 / copyPartySizeValue);
             percentTipValue20 = Math.round(percentTotalValue20 / copyPartySizeValue);
             percentTipValue25 = Math.round(percentTotalValue25 / copyPartySizeValue);
 
-            fifteenPercentTotalValue.setText(String.valueOf(percentTotalValue15.intValue()));
-            twentyPercentTotalValue.setText(String.valueOf(percentTotalValue20.intValue()));
-            twentyfivePercentTotalValue.setText(String.valueOf(percentTotalValue25.intValue()));
+            fifteenPercentTotalValue.setText(String.valueOf(percentTotalValue15));
+            twentyPercentTotalValue.setText(String.valueOf(percentTotalValue20));
+            twentyfivePercentTotalValue.setText(String.valueOf(percentTotalValue25));
 
             fifteenPercentTipValue.setText(String.valueOf(percentTipValue15));
             twentyPercentTipValue.setText(String.valueOf(percentTipValue20));
